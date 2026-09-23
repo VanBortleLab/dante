@@ -1,0 +1,63 @@
+---
+output: github_document
+---
+
+# geo2fastqR
+
+## Retrieve GEO metadata and FASTQ download URLs
+
+`geo2fastqR` is an R package for retrieving and combining metadata from NCBI Gene Expression Omnibus (GEO) and Sequence Read Archive (SRA), and for obtaining FASTQ download URLs from the European Nucleotide Archive (ENA).
+
+The package is designed to simplify the process of going from a GEO study accession (GSE) to an analysis-ready metadata table containing GSM, SRX, SRR, sequencing information, and FASTQ download URLs.
+
+## Features
+
+`geo2fastqR` currently provides functions to:
+
+- Retrieve GEO study metadata from a GSE accession.
+- Identify the corresponding SRA study (SRP).
+- Retrieve SRA RunInfo metadata.
+- Map GEO samples (GSM) to SRA experiments (SRX).
+- Map SRA experiments (SRX) to sequencing runs (SRR).
+- Parse GEO sample characteristics into separate metadata columns.
+- Retrieve FASTQ URLs from ENA using SRR accessions.
+- Add FASTQ URLs directly to the combined GEO/SRA metadata table.
+- Process multiple sequencing runs from a study.
+
+## Workflow
+
+The main workflow is:
+
+GSE
+  |
+  v
+GEO metadata
+  |
+  v
+SRP
+  |
+  v
+SRA RunInfo
+  |
+  v
+GSM -> SRX -> SRR
+  |
+  v
+ENA FASTQ URLs
+  |
+  v
+Analysis-ready metadata
+
+## Installation
+
+### Development version from GitHub
+
+The package is currently under development.
+
+To install the development version from GitHub:
+
+```r
+# install.packages("devtools")
+devtools::install_github("Saindhabi17/geo2fastqR")
+```
+

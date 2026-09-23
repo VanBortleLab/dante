@@ -1,0 +1,24 @@
+Package: geo2fastqR
+Title: Retrieve GEO Metadata and FASTQ URLs
+Version: 0.0.1
+Authors@R:
+    person(
+      "Saindhabi",
+      "Ghosh",
+      email = "ghosh24@illinois.edu",
+      role = c("aut", "cre")
+    )
+Description: Retrieves metadata from GEO and SRA, maps GSM, SRX and SRR
+    accessions, and retrieves FASTQ download URLs from ENA.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    GEOquery,
+    data.table,
+    dplyr
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 8.0.0
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
