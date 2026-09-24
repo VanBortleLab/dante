@@ -1,4 +1,4 @@
-Package: geo2fastqR
+Package: dante
 Title: Retrieve GEO Metadata and FASTQ URLs
 Version: 0.0.1
 Authors@R:
@@ -12,7 +12,6 @@ Description: Retrieves metadata from GEO and SRA, maps GSM, SRX and SRR
     accessions, and retrieves FASTQ download URLs from ENA.
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
 Imports:
     GEOquery,
     data.table,
@@ -22,3 +21,5 @@ RoxygenNote: 8.0.0
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+URL: https://github.com/Saindhabi17/dante
+BugReports: https://github.com/Saindhabi17/dante/issues
