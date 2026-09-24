@@ -2,17 +2,17 @@
 output: github_document
 ---
 
-# geo2fastqR
+# Dante 
 
 ## Retrieve GEO metadata and FASTQ download URLs
 
-`geo2fastqR` is an R package for retrieving and combining metadata from NCBI Gene Expression Omnibus (GEO) and Sequence Read Archive (SRA), and for obtaining FASTQ download URLs from the European Nucleotide Archive (ENA).
+`Dante` is an R package for retrieving and combining metadata from NCBI Gene Expression Omnibus (GEO) and Sequence Read Archive (SRA), and for obtaining FASTQ download URLs from the European Nucleotide Archive (ENA).
 
 The package is designed to simplify the process of going from a GEO study accession (GSE) to an analysis-ready metadata table containing GSM, SRX, SRR, sequencing information, and FASTQ download URLs.
 
 ## Features
 
-`geo2fastqR` currently provides functions to:
+`Dante` currently provides functions to:
 
 - Retrieve GEO study metadata from a GSE accession.
 - Identify the corresponding SRA study (SRP).
@@ -58,6 +58,6 @@ To install the development version from GitHub:
 
 ```r
 # install.packages("devtools")
-devtools::install_github("Saindhabi17/geo2fastqR")
+devtools::install_github("Saindhabi17/dante")
 ```
 
