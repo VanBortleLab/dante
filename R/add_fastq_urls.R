@@ -39,7 +39,7 @@ add_fastq_urls <- function(metadata_file){
   )
 
   metadata %>%
-    left_join(
+    dplyr::left_join(
       fastq,
       by = c("SRR" = "run_accession")
     )
