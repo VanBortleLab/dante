@@ -93,7 +93,7 @@ get_complete_metadata <- function(gse_name){
 
   gsm_meta <- lapply(gsm_ids, function(id){
 
-    gsm <- GSMList(gse)[[id]]
+    gsm <- gsm_list[[id]]
 
     md <- GEOquery::Meta(gsm)
 
