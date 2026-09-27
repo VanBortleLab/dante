@@ -24,7 +24,7 @@ get_fastq_urls <- function(srr){
     "&fields=run_accession,fastq_ftp,fastq_aspera,fastq_md5",
     "&format=tsv"
   )
-  x <- fread(url)
+  x <- data.table::fread(url)
 
   x
 
