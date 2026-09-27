@@ -47,14 +47,14 @@ get_complete_metadata <- function(gse_name){
   ## Download GEO
   ##########################################################
 
-  gse <- getGEO(gse_name,
+  gse <- GEOquery::getGEO(gse_name,
                 GSEMatrix = FALSE)
 
   ##########################################################
   ## Extract SRP
   ##########################################################
 
-  header <- Meta(gse)
+  header <- GEOquery::Meta(gse)
 
   relation <- header$relation
 
@@ -78,13 +78,14 @@ get_complete_metadata <- function(gse_name){
     srp
   )
 
-  runinfo <- fread(url)
+  runinfo <- data.table::fread(url)
 
   ##########################################################
   ## Get GSM IDs
   ##########################################################
 
-  gsm_ids <- names(GSMList(gse))
+  gsm_list <- GEOquery::GSMList(gse)
+  gsm_ids <- names(gsm_list)
 
   ##########################################################
   ## Basic GSM metadata
@@ -94,7 +95,7 @@ get_complete_metadata <- function(gse_name){
 
     gsm <- GSMList(gse)[[id]]
 
-    md <- Meta(gsm)
+    md <- GEOquery::Meta(gsm)
 
     data.frame(
 
@@ -120,7 +121,7 @@ get_complete_metadata <- function(gse_name){
 
   })
 
-  gsm_meta <- bind_rows(gsm_meta)
+  gsm_meta <- dplyr::bind_rows(gsm_meta)
 
   ##########################################################
   ## Characteristics
@@ -128,9 +129,9 @@ get_complete_metadata <- function(gse_name){
 
   char_df <- lapply(gsm_ids, function(id){
 
-    gsm <- GSMList(gse)[[id]]
+    gsm <- gsm_list[[id]]
 
-    md <- Meta(gsm)
+    md <- GEOquery::Meta(gsm)
 
     tmp <- extract_characteristics(
       md$characteristics_ch1
@@ -142,7 +143,7 @@ get_complete_metadata <- function(gse_name){
 
   })
 
-  char_df <- bind_rows(char_df)
+  char_df <- dplyr::bind_rows(char_df)
 
   ##########################################################
   ## Extract SRX accession
@@ -150,9 +151,9 @@ get_complete_metadata <- function(gse_name){
 
   gsm_links <- lapply(gsm_ids, function(id){
 
-    gsm <- GSMList(gse)[[id]]
+    gsm <- gsm_list[[id]]
 
-    md <- Meta(gsm)
+    md <- GEOquery::Meta(gsm)
 
     rel <- md$relation
 
@@ -184,7 +185,7 @@ get_complete_metadata <- function(gse_name){
 
   })
 
-  gsm_links <- bind_rows(gsm_links)
+  gsm_links <- dplyr::bind_rows(gsm_links)
 
   ##########################################################
   ## Merge everything
@@ -194,7 +195,7 @@ get_complete_metadata <- function(gse_name){
 
     runinfo %>%
 
-    rename(
+    dplyr::rename(
 
       SRR = Run,
 
@@ -202,17 +203,17 @@ get_complete_metadata <- function(gse_name){
 
     ) %>%
 
-    left_join(
+    dplyr::left_join(
       gsm_links,
       by="SRX"
     ) %>%
 
-    left_join(
+    dplyr::left_join(
       gsm_meta,
       by="GSM"
     ) %>%
 
-    left_join(
+    dplyr::left_join(
       char_df,
       by="GSM"
     )
