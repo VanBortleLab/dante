@@ -29,7 +29,7 @@
 
 add_fastq_urls <- function(metadata_file){
 
-  metadata <- fread(metadata_file)
+  metadata <- data.table::fread(metadata_file)
 
   srrs <- unique(metadata$SRR)
 
