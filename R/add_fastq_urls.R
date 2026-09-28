@@ -27,7 +27,7 @@
 #' @export
 
 
-add_fastq_urls <- function(metadata_file){
+add_fastq_urls <- function(metadata){
 
   if (is.character(metadata)) {
     metadata <- data.table::fread(metadata)
