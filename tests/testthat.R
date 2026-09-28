@@ -7,7 +7,7 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(geo2fastqR)
+library(dante)
 
-test_check("geo2fastqR")
+test_check("dante")
 
