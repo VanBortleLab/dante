@@ -26,26 +26,13 @@ The package is designed to simplify the process of going from a GEO study access
 
 ## Workflow
 
-The main workflow is:
+GSE accession
 
-GSE
-  |
-  v
 GEO metadata
-  |
-  v
-SRP
-  |
-  v
-SRA RunInfo
-  |
-  v
-GSM -> SRX -> SRR
-  |
-  v
-ENA FASTQ URLs
-  |
-  v
+
+SRA mapping
+
+FASTQ URLs
 Analysis-ready metadata
 
 ## Installation
