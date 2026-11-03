@@ -19,11 +19,11 @@ The package is designed to simplify the process of going from a GEO study access
 - Retrieve FASTQ URLs from ENA using SRR accessions.
 - Add FASTQ URLs directly to the combined GEO/SRA metadata table.
   
-         -- fastq_ftp : for downloading FASTQ files
+         fastq_ftp : for downloading FASTQ files
   
-         -- fastq_aspera : for alternative download of FASTQ files (fast download)
+         fastq_aspera : for alternative download of FASTQ files (fast download)
   
-         -- fastq_md5 : for integrity check and verifying the download of FASTQ files
+         fastq_md5 : for integrity check and verifying the download of FASTQ files
 
 
 
