@@ -26,14 +26,19 @@ The package is designed to simplify the process of going from a GEO study access
 
 ## Workflow
 
-GSE accession
+```mermaid
+flowchart TD
+    A["GSE accession"] --> B["GEO metadata"]
+    B --> C["Identify corresponding SRA study (SRP)"]
+    C --> D["Retrieve SRA RunInfo metadata"]
+    D --> E["Map GSM → SRX → SRR"]
+    E --> F["Parse sample characteristics"]
+    F --> G["Retrieve FASTQ URLs from ENA"]
+    G --> H["Combined GEO/SRA metadata table"]
 
-GEO metadata
-
-SRA mapping
-
-FASTQ URLs
-Analysis-ready metadata
+    style A fill:#fce4e4,stroke:#b22222,color:#222
+    style H fill:#e2f0e2,stroke:#39804a,color:#222
+```
 
 ## Installation
 
