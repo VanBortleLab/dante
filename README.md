@@ -1,14 +1,14 @@
-# Dante 
+# dante 
 
 ## Retrieve GEO metadata and FASTQ download URLs
 
-`Dante` is an R package for retrieving and combining metadata from NCBI Gene Expression Omnibus (GEO) and Sequence Read Archive (SRA), and for obtaining FASTQ download URLs from the European Nucleotide Archive (ENA). Inspired from Dante's Inferno, Dante will help you to go through the 'messy' metadata and to recover the 'soul' of it - the FASTQ files!
+`dante` is an R package for retrieving and combining metadata from NCBI Gene Expression Omnibus (GEO) and Sequence Read Archive (SRA), and for obtaining FASTQ download URLs from the European Nucleotide Archive (ENA). Inspired from Dante's Inferno, Dante will help you to go through the 'messy' metadata and to recover the 'soul' of it - the FASTQ files!
 
 The package is designed to simplify the process of going from a GEO study accession (GSE) to an analysis-ready metadata table containing GSM, SRX, SRR, sequencing information, and FASTQ download URLs.
 
 ## Features
 
-`Dante` currently provides functions to:
+`dante` currently provides functions to:
 
 - Retrieve GEO study metadata from a GSE accession.
 - Identify the corresponding SRA study (SRP).
@@ -53,12 +53,12 @@ To install the development version from GitHub:
 
 ```r
 # install.packages("devtools")
-devtools::install_github("VanBortleLab/Dante", auth_token = NULL)
+devtools::install_github("VanBortleLab/dante", auth_token = NULL)
 ```
 
 # Downloading the metadata 
 
-'Dante' allows downloading metadata for both single and multiple studies. 
+'dante' allows downloading metadata for both single and multiple studies. 
 
 ## for single study:
 
