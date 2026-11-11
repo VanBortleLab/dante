@@ -100,7 +100,7 @@ for (i in seq_along(gse)) {
   message("Finished: ", accession)
 }
 ```
-### 1. retrieving metadata as a combined form: 
+### 2. retrieving metadata as a combined form: 
 
 ```r
 gse <- c("GSEid1", "GSEid2")
