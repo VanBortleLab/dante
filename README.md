@@ -77,7 +77,7 @@ write.csv(
 
 While downloading metadata for multiple GSE's, there can be two ways -
 
-### 1. retrieving metadata as single GSE file: 
+### 1. retrieving metadata as single GSE files: 
 
 ```r
 # store your GSE accessions numbers
