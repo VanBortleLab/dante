@@ -53,6 +53,74 @@ To install the development version from GitHub:
 
 ```r
 # install.packages("devtools")
-devtools::install_github("VanBortleLab/dante")
+devtools::install_github("VanBortleLab/Dante", auth_token = NULL)
 ```
+
+# Downloading the metadata 
+
+'Dante' allows downloading metadata for both single and multiple studies. 
+
+## for single study:
+
+```r
+gse <- "GSEid"
+metadata <- get_complete_metadata("GSEid")
+metadata_fastq <- add_fastq_urls(metadata)
+
+write.csv(
+  metadata_fastq,
+  "GSEid_metadata_with_FASTQ.csv",
+  row.names = FALSE
+)
+```
+## for multiple studies - bulk download:
+
+While downloading metadata for multiple GSE's, there can be two ways -
+
+### 1. retrieving metadata as single GSE file: 
+
+```r
+# store your GSE accessions numbers
+gse <- c("GSEid1", "GSEid2")
+
+# Process and saving each GEO study separately
+for (i in seq_along(gse)) {
+  accession <- gse[i]
+  message("Processing ", accession)
+  
+  metadata <- get_complete_metadata(accession)
+  metadata_fastq <- add_fastq_urls(metadata)
+  
+  write.csv(
+    metadata_fastq,
+    paste0(accession, "_metadata_FASTQ.csv"),
+    row.names = FALSE
+  )
+
+  message("Finished: ", accession)
+}
+```
+### 1. retrieving metadata as a combined form: 
+
+```r
+gse <- c("GSEid1", "GSEid2")
+
+# Retrieving metadata for each study
+metadata_list <- lapply(gse, function(x) {
+  message("Processing: ", x)
+  df <- get_complete_metadata(x)
+  df$GSE <- x
+  return(df)
+})
+# Combining all studies
+metadata <- bind_rows(metadata_list)
+
+write.csv(
+  metadata,
+  "Combined_GEO_metadata.csv",
+  row.names = FALSE
+)
+```
+
+
 
